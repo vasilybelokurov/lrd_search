@@ -2,6 +2,10 @@
 
 A systematic search for local (low-redshift) analogs of Little Red Dots - compact, red objects that may be related to high-redshift quasars or early galaxy formation processes.
 
+## 🎯 **Ready to Use - Complete Dataset Included!**
+
+This repository contains the **complete ~20M source cross-matched dataset** (`all_sky_data.parquet`) required for the analysis. You can immediately start with candidate selection and spectroscopic follow-up - **no need to run the expensive all-sky query**!
+
 ## Project Overview
 
 This project identifies rare, red point sources from a comprehensive multi-survey cross-match and validates them spectroscopically. The analysis combines UV, optical, and near-infrared photometry with astrometric and spectroscopic data to find objects with Little Red Dot-like properties at accessible redshifts.
@@ -18,7 +22,7 @@ This project identifies rare, red point sources from a comprehensive multi-surve
 ## Notebooks
 
 ### 1. `all_sky_query.ipynb` - Data Collection
-**Status: ✅ Complete - search file already exists, no need to re-run**
+**Status: ✅ Complete - `all_sky_data.parquet` included in repository**
 
 Performs comprehensive all-sky cross-match between:
 - **GALEX** UV photometry (FUV, NUV bands)
@@ -31,7 +35,7 @@ Performs comprehensive all-sky cross-match between:
 - Extinction corrections using SFD dust maps
 - Returns ~20.5M GALEX-DECaLS pairs → 645k unique sources
 
-**Output:** `all_sky_data.parquet` (~20M objects)
+**Output:** `all_sky_data.parquet` (~20M objects) - **✅ INCLUDED IN REPOSITORY**
 
 ### 2. `lrd_select_candidates.ipynb` - Candidate Selection
 
@@ -115,7 +119,10 @@ Requires authentication tokens for:
 ## Usage
 
 ### Quick Start
-1. **Skip the data collection** - `all_sky_query.ipynb` has already been run
+
+🚀 **The complete dataset is already included** - jump straight to the science!
+
+1. **Load the data** - `all_sky_data.parquet` contains the full ~20M source cross-match
 2. **Run candidate selection**:
    ```bash
    jupyter notebook lrd_select_candidates.ipynb
@@ -124,6 +131,8 @@ Requires authentication tokens for:
    ```bash
    jupyter notebook desi_bulk_retrieval_fixed.ipynb
    ```
+
+⚡ **No waiting for database queries** - everything you need is here!
 
 ### Modifying Selection Criteria
 Edit the `sel_criteria` dictionary in `lrd_select_candidates.ipynb`:
@@ -141,7 +150,8 @@ sel_criteria = {
 ```
 lrd_search/
 ├── README.md
-├── all_sky_query.ipynb              # Data collection (complete)
+├── all_sky_data.parquet             # 🎯 MAIN DATASET (~20M sources)
+├── all_sky_query.ipynb              # Data collection (complete)  
 ├── lrd_select_candidates.ipynb       # Candidate selection
 ├── desi_bulk_retrieval_fixed.ipynb   # Spectroscopic follow-up
 ├── aux_data/
